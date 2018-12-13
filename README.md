@@ -15,7 +15,8 @@ The repository includes:
 
 
 # Getting Started
-* [cnn_feature_extractor](cnn_feature_extractor.py) extracts the features using NASNet or ResNet 50 from Flickr dataset. The file  preprocess_descriptions.py prepares all the descriptions from Flickr dataset to be used on the next steps. If you have a model for object detection that saves the results on a file using the format (x1, y1, x2, y2, class_id, bbox_score) for each detection, then it can be used on the next steps as well.
+* [cnn_feature_extractor](cnn_feature_extractor.py) extracts the features using NASNet or ResNet 50 from Flickr dataset. If you have a model for object detection that saves the results on a file using the format (x1, y1, x2, y2, class_id, bbox_score) for each detection, then it can be used on the next steps as well.
+* [preprocess_descriptions](preprocess_descriptions.py) prepares all the descriptions from Flickr dataset to be used on the next steps.
 * [rnn_flickr_fit](rnn_flickr_fit.py) will fit the model using the clean descriptions and features (including features from object detection when provided) generated from previous steps. 
 * [rnn_flickr_evaluation](rnn_flickr_evaluation.py) evaluates the captions for the whole Flickr test dataset using BLEU metrics. However, it might be necessary some modifications to adjust the code to each need.
 
