@@ -51,6 +51,8 @@ def extract_features(directory, ids, model):
     # pops the last layer to get the features
     model.layers.pop()
     model = Model(inputs=model.inputs, outputs=model.layers[-1].output)
+    # model.summary()
+    print(len(model.layers))
     # model characteristics
     plot_model(model, to_file='model.png')
     imgs = load_list(ids)
@@ -83,7 +85,7 @@ def extract_features(directory, ids, model):
 def main(args): 
     # extract features from all images in database
     imgs_directory = args[1] if len(args) > 1 else input('Type the images path: ')  #'../ImageDescriptionModel/Flickr8k_Dataset/Flicker8k_Dataset'
-    imgs_ids = args[2] if len(args) > 2 else input('Type the document path (.txt) with image ids: ')  #'../ImageDescriptionModel/Flickr8k_text/test'
+    imgs_ids = args[2] if len(args) > 2 else input('Type the document path (.txt) with image ids: ')  #'../ImageDescriptionModel/Flickr8k_text/test.txt'
     model = args[3] if len(args) > 3 else input('Type 1 to use Resnet50 or 2 for NasnetLarge: ')
     features = extract_features(imgs_directory, imgs_ids, model)
     print('ok')
